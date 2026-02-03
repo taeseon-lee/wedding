@@ -81,9 +81,6 @@ const CONFIG = {
     'photo10.png',
     'photo11.png',
     'photo12.png',
-    'photo13.png',
-    'photo14.png',
-    'photo15.png',
-    'photo16.png'
+    'photo13.png'
   ]
 };

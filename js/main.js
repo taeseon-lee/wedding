@@ -52,6 +52,11 @@ const galleryImages = CONFIG.gallery;
 
 function initGallery() {
   const galleryGrid = document.getElementById('gallery-grid');
+  const galleryToggle = document.getElementById('gallery-toggle');
+  let isExpanded = false;
+  
+  // 처음에 접힌 상태로 시작 (6장만 표시)
+  galleryGrid.classList.add('collapsed');
   
   galleryImages.forEach((image, index) => {
     const item = document.createElement('div');
@@ -59,6 +64,18 @@ function initGallery() {
     item.innerHTML = `<img src="images/${image}" alt="갤러리 사진 ${index + 1}" loading="lazy">`;
     item.addEventListener('click', () => openModal(index));
     galleryGrid.appendChild(item);
+  });
+  
+  // 더보기/접기 토글
+  galleryToggle.addEventListener('click', function() {
+    isExpanded = !isExpanded;
+    if (isExpanded) {
+      galleryGrid.classList.remove('collapsed');
+      galleryToggle.textContent = '접기';
+    } else {
+      galleryGrid.classList.add('collapsed');
+      galleryToggle.textContent = '더 보기';
+    }
   });
   
   // 모달 이벤트
@@ -138,40 +155,33 @@ function showNextImage() {
 }
 
 // ============================================
-// 계좌번호 탭 기능
+// 계좌번호 아코디언 기능
 // ============================================
 function initAccountTabs() {
-  const tabs = document.querySelectorAll('.account-tab');
-  const groomContent = document.getElementById('account-groom');
-  const brideContent = document.getElementById('account-bride');
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
   
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      tabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const targetId = this.dataset.target;
+      const content = document.getElementById(targetId);
       
-      const tabType = this.dataset.tab;
-      if (tabType === 'groom') {
-        groomContent.classList.remove('hidden');
-        brideContent.classList.add('hidden');
-      } else {
-        groomContent.classList.add('hidden');
-        brideContent.classList.remove('hidden');
-      }
+      // 토글 현재 아코디언
+      this.classList.toggle('active');
+      content.classList.toggle('active');
     });
   });
 }
 
 // ============================================
-// 계좌번호 복사 기능
+// 계좌번호 복사 기능 (계좌번호만 복사)
 // ============================================
 function initCopyButtons() {
-  const copyButtons = document.querySelectorAll('.copy-button');
+  const copyButtons = document.querySelectorAll('.copy-btn');
   
   copyButtons.forEach(button => {
     button.addEventListener('click', function() {
-      const accountInfo = this.dataset.account;
-      copyToClipboard(accountInfo);
+      const accountNumber = this.dataset.account;
+      copyToClipboard(accountNumber);
     });
   });
 }
