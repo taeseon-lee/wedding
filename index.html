@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="이태선 ♥ 이승진 결혼합니다">
+  <title>이태선 ♥ 이승진 결혼합니다</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 메인 섹션 -->
+  <section id="main" class="section main-section">
+    <div class="main-content">
+      <p class="main-subtitle">Wedding Invitation</p>
+      <h1 class="main-names">
+        <span class="groom-name">이태선</span>
+        <span class="heart">♥</span>
+        <span class="bride-name">이승진</span>
+      </h1>
+      <p class="main-date">2026년 11월 29일 일요일 오후 2시</p>
+      <p class="main-venue">문정 루이비스 그레이스홀</p>
+    </div>
+  </section>
+
+  <!-- 인사말 섹션 -->
+  <section id="greeting" class="section greeting-section">
+    <div class="section-content">
+      <h2 class="section-title">소중한 분들을 초대합니다</h2>
+      <div class="greeting-message">
+        <p>두 사람이 만나</p>
+        <p>오랜 시간 함께 걸어왔습니다.</p>
+        <br>
+        <p>이제 부부라는 이름으로</p>
+        <p>새로운 길을 시작하려 합니다.</p>
+        <br>
+        <p>소중한 날, 가까이에서 축복해 주신다면</p>
+        <p>더없는 기쁨이 되겠습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카운트다운 섹션 -->
+  <section id="countdown" class="section countdown-section">
+    <div class="section-content">
+      <h2 class="section-title">결혼식까지</h2>
+      <div class="countdown-container">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">0</span>
+          <span class="countdown-label">일</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">0</span>
+          <span class="countdown-label">시간</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">0</span>
+          <span class="countdown-label">분</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">0</span>
+          <span class="countdown-label">초</span>
+        </div>
+      </div>
+      <p class="countdown-dday" id="dday-text">D-0</p>
+    </div>
+  </section>
+
+  <!-- 소개 섹션 -->
+  <section id="intro" class="section intro-section">
+    <div class="section-content">
+      <div class="couple-info">
+        <div class="person-info groom-info">
+          <p class="parents">이병남 · 신정옥<span class="relation">의 아들</span></p>
+          <p class="person-name">이태선</p>
+          <a href="tel:010-7197-6550" class="phone-link">
+            <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="person-info bride-info">
+          <p class="parents">이도형 · 이향희<span class="relation">의 딸</span></p>
+          <p class="person-name">이승진</p>
+          <a href="tel:010-9114-6322" class="phone-link">
+            <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 갤러리 섹션 -->
+  <section id="gallery" class="section gallery-section">
+    <div class="section-content">
+      <h2 class="section-title">갤러리</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- 이미지는 JavaScript로 동적 생성 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 달력 섹션 -->
+  <section id="calendar" class="section calendar-section">
+    <div class="section-content">
+      <h2 class="section-title">예식 안내</h2>
+      <p class="calendar-date-text">2026년 11월 29일 일요일 오후 2시</p>
+      <div class="calendar-container">
+        <div class="calendar-header">11월</div>
+        <div class="calendar-weekdays">
+          <span>일</span>
+          <span>월</span>
+          <span>화</span>
+          <span>수</span>
+          <span>목</span>
+          <span>금</span>
+          <span>토</span>
+        </div>
+        <div class="calendar-days">
+          <span class="empty"></span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+          <span>13</span>
+          <span>14</span>
+          <span>15</span>
+          <span>16</span>
+          <span>17</span>
+          <span>18</span>
+          <span>19</span>
+          <span>20</span>
+          <span>21</span>
+          <span>22</span>
+          <span>23</span>
+          <span>24</span>
+          <span>25</span>
+          <span>26</span>
+          <span>27</span>
+          <span>28</span>
+          <span class="wedding-day">29</span>
+          <span>30</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 섹션 -->
+  <section id="location" class="section location-section">
+    <div class="section-content">
+      <h2 class="section-title">오시는 길</h2>
+      <div class="location-info">
+        <h3 class="venue-name">문정 루이비스</h3>
+        <p class="hall-name">그레이스홀</p>
+        <p class="address">서울특별시 송파구 문정동 645-2 B1층</p>
+        
+        <a href="https://map.kakao.com/link/map/문정루이비스,37.4851,127.1229" target="_blank" class="map-button">
+          카카오맵에서 보기
+        </a>
+
+        <div class="transport-info">
+          <div class="transport-item">
+            <span class="transport-icon">🚇</span>
+            <div class="transport-text">
+              <strong>지하철</strong>
+              <p>8호선 문정역 3번 출구 도보 9분</p>
+            </div>
+          </div>
+          <div class="transport-item">
+            <span class="transport-icon">🚗</span>
+            <div class="transport-text">
+              <strong>주차</strong>
+              <p>웨딩홀 주차장 이용 시 2시간 무료 주차</p>
+            </div>
+          </div>
+          <div class="transport-item">
+            <span class="transport-icon">🚌</span>
+            <div class="transport-text">
+              <strong>셔틀버스</strong>
+              <p>문정역 ↔ 웨딩홀 셔틀버스 운행</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 계좌번호 섹션 -->
+  <section id="account" class="section account-section">
+    <div class="section-content">
+      <h2 class="section-title">마음 전하실 곳</h2>
+      <p class="account-subtitle">멀리서도 축하의 마음을<br>전하고 싶으신 분들을 위해<br>계좌번호를 안내드립니다.</p>
+      
+      <div class="account-tabs">
+        <button class="account-tab active" data-tab="groom">신랑측</button>
+        <button class="account-tab" data-tab="bride">신부측</button>
+      </div>
+
+      <div class="account-content" id="account-groom">
+        <div class="account-item">
+          <div class="account-header">
+            <span class="account-relation">신랑</span>
+          </div>
+          <div class="account-body">
+            <p class="account-number">새마을금고 9003240159711</p>
+            <p class="account-holder">김용훈</p>
+            <button class="copy-button" data-account="새마을금고 9003240159711 김용훈">복사</button>
+          </div>
+        </div>
+        <div class="account-item">
+          <div class="account-header">
+            <span class="account-relation">신랑 아버지</span>
+          </div>
+          <div class="account-body">
+            <p class="account-number">토스뱅크 100062123188</p>
+            <p class="account-holder">김동국</p>
+            <button class="copy-button" data-account="토스뱅크 100062123188 김동국">복사</button>
+          </div>
+        </div>
+        <div class="account-item">
+          <div class="account-header">
+            <span class="account-relation">신랑 어머니</span>
+          </div>
+          <div class="account-body">
+            <p class="account-number">기업은행 10806099002039</p>
+            <p class="account-holder">권혁미</p>
+            <button class="copy-button" data-account="기업은행 10806099002039 권혁미">복사</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="account-content hidden" id="account-bride">
+        <div class="account-item">
+          <div class="account-header">
+            <span class="account-relation">신부</span>
+          </div>
+          <div class="account-body">
+            <p class="account-number">기업은행 46704969901015</p>
+            <p class="account-holder">전현지</p>
+            <button class="copy-button" data-account="기업은행 46704969901015 전현지">복사</button>
+          </div>
+        </div>
+        <div class="account-item">
+          <div class="account-header">
+            <span class="account-relation">신부 어머니</span>
+          </div>
+          <div class="account-body">
+            <p class="account-number">농협 81507356149079</p>
+            <p class="account-holder">신종순</p>
+            <button class="copy-button" data-account="농협 81507356149079 신종순">복사</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <p>이태선 ♥ 이승진</p>
+    <p>2026. 11. 29</p>
+  </footer>
+
+  <!-- 갤러리 모달 -->
+  <div class="modal" id="gallery-modal">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <img class="modal-image" id="modal-image" src="" alt="">
+    <button class="modal-nav modal-prev" id="modal-prev">&lt;</button>
+    <button class="modal-nav modal-next" id="modal-next">&gt;</button>
+  </div>
+
+  <!-- 토스트 메시지 -->
+  <div class="toast" id="toast">계좌번호가 복사되었습니다.</div>
+
+  <script src="config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
