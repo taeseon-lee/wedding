@@ -11,7 +11,7 @@ const CONFIG = {
     venue: '문정 루이비스',
     hall: '그레이스홀',
     address: '서울특별시 송파구 문정동 645-2 B1층',
-    mapUrl: 'https://map.kakao.com/link/map/문정루이비스,37.4851,127.1229'
+    mapUrl: 'https://kko.to/iBaoSNDZ_1'
   },
 
   // 신랑 정보
