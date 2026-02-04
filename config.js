@@ -69,18 +69,18 @@ const CONFIG = {
 
   // 갤러리 이미지 목록 (images 폴더 내 파일명)
   gallery: [
-    'photo1.jpg',
-    'photo2.jpg',
-    'photo3.png',
-    'photo4.png',
-    'photo5.png',
-    'photo6.png',
-    'photo7.png',
-    'photo8.png',
-    'photo9.png',
-    'photo10.png',
-    'photo11.png',
-    'photo12.png',
-    'photo13.png'
+    'photo1.png',
+    // 'photo2.jpg',
+    // 'photo3.png',
+    // 'photo4.png',
+    // 'photo5.png',
+    // 'photo6.png',
+    // 'photo7.png',
+    // 'photo8.png',
+    // 'photo9.png',
+    // 'photo10.png',
+    // 'photo11.png',
+    // 'photo12.png',
+    // 'photo13.png'
   ]
 };
