@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="태선 ♥ 승진 결혼합니다">
-  
-  <!-- Open Graph 태그 -->
+
+  <!-- Open Graph / Twitter 태그는 크롤러가 JS를 실행하지 않으므로 직접 수정 필요 -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="태선 ♥ 승진 결혼합니다">
   <meta property="og:description" content="2026년 11월 29일 일요일 오후 2시 문정 루이비스 그레이스홀">
   <meta property="og:image" content="https://taeseon-lee.github.io/wedding/thumbnail/photo1.png">
-  
-  <!-- Twitter Card 태그 -->
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="태선 ♥ 승진 결혼합니다">
   <meta name="twitter:description" content="2026년 11월 29일 일요일 오후 2시 문정 루이비스 그레이스홀">
   <meta name="twitter:image" content="https://taeseon-lee.github.io/wedding/thumbnail/photo1.png">
-  
+
   <title>태선 ♥ 승진 결혼합니다</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,28 +28,21 @@
     <div class="main-content">
       <p class="main-subtitle">Wedding Invitation</p>
       <h1 class="main-names">
-        <span class="groom-name">태선</span>
+        <span class="groom-name"></span>
         <span class="heart">♥</span>
-        <span class="bride-name">승진</span>
+        <span class="bride-name"></span>
       </h1>
-      <p class="main-date">2026년 11월 29일 일요일 오후 2시</p>
-      <p class="main-venue">문정 루이비스 그레이스홀</p>
+      <p class="main-date"></p>
+      <p class="main-venue"></p>
     </div>
   </section>
 
   <!-- 인사말 섹션 -->
   <section id="greeting" class="section greeting-section">
     <div class="section-content">
-      <h2 class="section-title">소중한 분들을 초대합니다</h2>
+      <h2 class="section-title greeting-title"></h2>
       <div class="greeting-message">
-        <p>두 사람이 만나</p>
-        <p>오랜 시간 함께 걸어왔습니다.</p>
-        <br>
-        <p>이제 부부라는 이름으로</p>
-        <p>새로운 길을 시작하려 합니다.</p>
-        <br>
-        <p>소중한 날, 가까이에서 축복해 주신다면</p>
-        <p>더없는 기쁨이 되겠습니다.</p>
+        <!-- CONFIG.greeting.message에서 생성 -->
       </div>
     </div>
   </section>
@@ -84,25 +76,8 @@
   <!-- 소개 섹션 -->
   <section id="intro" class="section intro-section">
     <div class="section-content">
-      <div class="couple-info">
-        <div class="person-info groom-info">
-          <p class="parents">이병남 · 신정옥<span class="relation">의 아들</span></p>
-          <p class="person-name">이태선</p>
-          <a href="tel:010-7197-6550" class="phone-link">
-            <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="person-info bride-info">
-          <p class="parents">이도형 · 이향희<span class="relation">의 딸</span></p>
-          <p class="person-name">이승진</p>
-          <a href="tel:010-9114-6322" class="phone-link">
-            <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-          </a>
-        </div>
+      <div class="couple-info" id="couple-info">
+        <!-- CONFIG.groom/bride에서 생성 -->
       </div>
     </div>
   </section>
@@ -112,7 +87,7 @@
     <div class="section-content">
       <h2 class="section-title">갤러리</h2>
       <div class="gallery-grid" id="gallery-grid">
-        <!-- 이미지는 JavaScript로 동적 생성 -->
+        <!-- CONFIG.gallery에서 생성 -->
       </div>
       <button class="gallery-toggle" id="gallery-toggle">더 보기</button>
     </div>
@@ -122,9 +97,9 @@
   <section id="calendar" class="section calendar-section">
     <div class="section-content">
       <h2 class="section-title">예식 안내</h2>
-      <p class="calendar-date-text">2026년 11월 29일 일요일 오후 2시</p>
+      <p class="calendar-date-text"></p>
       <div class="calendar-container">
-        <div class="calendar-header">11월</div>
+        <div class="calendar-header" id="calendar-month"></div>
         <div class="calendar-weekdays">
           <span>일</span>
           <span>월</span>
@@ -134,37 +109,8 @@
           <span>금</span>
           <span>토</span>
         </div>
-        <div class="calendar-days">
-          <span class="sunday">1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
-          <span>6</span>
-          <span class="saturday">7</span>
-          <span class="sunday">8</span>
-          <span>9</span>
-          <span>10</span>
-          <span>11</span>
-          <span>12</span>
-          <span>13</span>
-          <span class="saturday">14</span>
-          <span class="sunday">15</span>
-          <span>16</span>
-          <span>17</span>
-          <span>18</span>
-          <span>19</span>
-          <span>20</span>
-          <span class="saturday">21</span>
-          <span class="sunday">22</span>
-          <span>23</span>
-          <span>24</span>
-          <span>25</span>
-          <span>26</span>
-          <span>27</span>
-          <span class="saturday">28</span>
-          <span class="wedding-day sunday">29</span>
-          <span>30</span>
+        <div class="calendar-days" id="calendar-days">
+          <!-- CONFIG.wedding.date에서 생성 -->
         </div>
       </div>
     </div>
@@ -175,24 +121,24 @@
     <div class="section-content">
       <h2 class="section-title">오시는 길</h2>
       <div class="location-info">
-        <h3 class="venue-name">문정 루이비스</h3>
-        <p class="hall-name">그레이스홀</p>
-        <p class="address">서울특별시 송파구 문정동 645-2 B1층</p>
-        
+        <h3 class="venue-name"></h3>
+        <p class="hall-name"></p>
+        <p class="address"></p>
+
         <div class="map-container">
-          <a href="https://kko.to/iBaoSNDZ_1" target="_blank">
-            <img src="map/map.png" alt="문정 루이비스 위치" class="map-image">
+          <a id="map-link" href="#" target="_blank">
+            <img src="map/map.png" alt="웨딩홀 위치" class="map-image">
           </a>
         </div>
 
         <div class="map-buttons">
-          <a href="https://kko.to/iBaoSNDZ_1" target="_blank" class="map-btn kakao">
+          <a id="kakao-map-btn" href="#" target="_blank" class="map-btn kakao">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
             </svg>
             카카오맵
           </a>
-          <a href="https://naver.me/Gctrli34" target="_blank" class="map-btn naver">
+          <a id="naver-map-btn" href="#" target="_blank" class="map-btn naver">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
@@ -200,28 +146,8 @@
           </a>
         </div>
 
-        <div class="transport-info">
-          <div class="transport-item">
-            <span class="transport-icon">🚇</span>
-            <div class="transport-text">
-              <strong>지하철</strong>
-              <p>8호선 문정역 3번 출구 도보 9분</p>
-            </div>
-          </div>
-          <div class="transport-item">
-            <span class="transport-icon">🚗</span>
-            <div class="transport-text">
-              <strong>주차</strong>
-              <p>웨딩홀 주차장 이용 시 2시간 무료 주차</p>
-            </div>
-          </div>
-          <div class="transport-item">
-            <span class="transport-icon">🚌</span>
-            <div class="transport-text">
-              <strong>셔틀버스</strong>
-              <p>문정역 ↔ 웨딩홀 셔틀버스 운행</p>
-            </div>
-          </div>
+        <div class="transport-info" id="transport-info">
+          <!-- CONFIG.location에서 생성 -->
         </div>
       </div>
     </div>
@@ -232,109 +158,17 @@
     <div class="section-content">
       <h2 class="section-title">마음 전하실 곳</h2>
       <p class="account-subtitle">멀리서도 축하의 마음을<br>전하고 싶으신 분들을 위해<br>계좌번호를 안내드립니다.</p>
-      
-      <div class="account-accordion">
-        <!-- 신랑측 아코디언 -->
-        <div class="accordion-group">
-          <button class="accordion-header" data-target="groom-accounts">
-            <span class="accordion-title">신랑측 계좌번호</span>
-            <span class="accordion-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 9l-7 7-7-7"/>
-              </svg>
-            </span>
-          </button>
-          <div class="accordion-content" id="groom-accounts">
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신랑</span>
-                <span class="account-holder">이태선</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">기업은행</span>
-                <span class="account-number">98209524601019</span>
-                <button class="copy-btn" data-account="9003240159711">복사</button>
-              </div>
-            </div>
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신랑 아버지</span>
-                <span class="account-holder">이병남</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">은행명</span>
-                <span class="account-number">--------</span>
-                <button class="copy-btn" data-account="100062123188">복사</button>
-              </div>
-            </div>
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신랑 어머니</span>
-                <span class="account-holder">신정옥</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">은행명</span>
-                <span class="account-number">---------</span>
-                <button class="copy-btn" data-account="10806099002039">복사</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- 신부측 아코디언 -->
-        <div class="accordion-group">
-          <button class="accordion-header" data-target="bride-accounts">
-            <span class="accordion-title">신부측 계좌번호</span>
-            <span class="accordion-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 9l-7 7-7-7"/>
-              </svg>
-            </span>
-          </button>
-          <div class="accordion-content" id="bride-accounts">
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신부</span>
-                <span class="account-holder">이승진</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">신한</span>
-                <span class="account-number">110488665484</span>
-                <button class="copy-btn" data-account="46704969901015">복사</button>
-              </div>
-            </div>
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신부 아버지</span>
-                <span class="account-holder">이도형</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">은행명</span>
-                <span class="account-number">--------</span>
-                <button class="copy-btn" data-account="81507356149079">복사</button>
-              </div>
-            </div>
-            <div class="account-card">
-              <div class="account-card-header">
-                <span class="account-relation">신부 어머니</span>
-                <span class="account-holder">이향희</span>
-              </div>
-              <div class="account-card-body">
-                <span class="account-bank">은행명</span>
-                <span class="account-number">--------</span>
-                <button class="copy-btn" data-account="81507356149079">복사</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="account-accordion" id="account-accordion">
+        <!-- CONFIG.accounts에서 생성 -->
       </div>
     </div>
   </section>
 
   <!-- 푸터 -->
   <footer class="footer">
-    <p>태선 ♥ 승진</p>
-    <p>2026. 11. 29</p>
+    <p id="footer-names"></p>
+    <p id="footer-date"></p>
   </footer>
 
   <!-- 갤러리 모달 -->
