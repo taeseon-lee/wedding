@@ -235,6 +235,15 @@ function initCountdown() {
 let currentImageIndex = 0;
 const galleryImages = CONFIG.gallery;
 
+function getGalleryImagePath(image) {
+  return `images/${image}`;
+}
+
+function getGalleryThumbnailPath(image) {
+  const thumbnailName = image.replace(/\.[^.]+$/, '.png');
+  return `thumbnail/${thumbnailName}`;
+}
+
 function initGallery() {
   const galleryGrid = document.getElementById('gallery-grid');
   const galleryToggle = document.getElementById('gallery-toggle');
@@ -245,7 +254,7 @@ function initGallery() {
   galleryImages.forEach((image, index) => {
     const item = document.createElement('div');
     item.className = 'gallery-item';
-    item.innerHTML = `<img src="images/${image}" alt="갤러리 사진 ${index + 1}" loading="lazy">`;
+    item.innerHTML = `<img src="${getGalleryThumbnailPath(image)}" alt="갤러리 사진 ${index + 1}" loading="lazy" decoding="async">`;
     item.addEventListener('click', () => openModal(index));
     galleryGrid.appendChild(item);
   });
@@ -304,7 +313,7 @@ function openModal(index) {
   currentImageIndex = index;
   const modal = document.getElementById('gallery-modal');
   const modalImage = document.getElementById('modal-image');
-  modalImage.src = `images/${galleryImages[currentImageIndex]}`;
+  modalImage.src = getGalleryImagePath(galleryImages[currentImageIndex]);
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -317,12 +326,12 @@ function closeModal() {
 
 function showPrevImage() {
   currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-  document.getElementById('modal-image').src = `images/${galleryImages[currentImageIndex]}`;
+  document.getElementById('modal-image').src = getGalleryImagePath(galleryImages[currentImageIndex]);
 }
 
 function showNextImage() {
   currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-  document.getElementById('modal-image').src = `images/${galleryImages[currentImageIndex]}`;
+  document.getElementById('modal-image').src = getGalleryImagePath(galleryImages[currentImageIndex]);
 }
 
 // ============================================
@@ -353,14 +362,16 @@ function initCopyButtons() {
 }
 
 function copyToClipboard(text) {
+  const normalizedText = text.replace(/-/g, '');
+
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(normalizedText).then(() => {
       showToast();
     }).catch(() => {
-      fallbackCopy(text);
+      fallbackCopy(normalizedText);
     });
   } else {
-    fallbackCopy(text);
+    fallbackCopy(normalizedText);
   }
 }
 

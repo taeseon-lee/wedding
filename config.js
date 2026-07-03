@@ -39,14 +39,13 @@ const CONFIG = {
   // 인사말
   greeting: {
     title: '소중한 분들을 초대합니다',
-    message: `두 사람이 만나
-오랜 시간 함께 걸어왔습니다.
-
-이제 부부라는 이름으로
-새로운 길을 시작하려 합니다.
-
-소중한 날, 가까이에서 축복해 주신다면
-더없는 기쁨이 되겠습니다.`
+    message: `인생이라는 게임의 완벽한 파트너를 만났습니다.
+보드게임판 앞에서 마주 앉아 즐겁게 웃던 저희 두 사람이
+이제는 같은 곳을 바라보며 평생을 약속하려 합니다.
+어떠한 난관이 찾아와도 서로의 버팀목이 되어주고
+모든 기쁨의 순간을 웃으며 함께하는 한 팀이 되겠습니다.
+이제 각자가 아닌 부부라는 이름으로 시작하는
+저희 여정의 첫 번째 라운드에 소중한 분들을 초대합니다.`
   },
 
   // 오시는 길 정보
@@ -59,31 +58,32 @@ const CONFIG = {
   // 계좌 정보
   accounts: {
     groom: [
-      { relation: '신랑', bank: '기업은행', number: '98209524601019', holder: '이태선' },
-      { relation: '신랑 아버지', bank: '은행명', number: '--------', holder: '이병남' },
-      { relation: '신랑 어머니', bank: '은행명', number: '---------', holder: '신정옥' }
+      { relation: '신랑', bank: '기업은행', number: '982-095246-01-019', holder: '이태선' },
+      { relation: '신랑 아버지', bank: '농협', number: '601099-56-124768', holder: '이병남' },
     ],
     bride: [
-      { relation: '신부', bank: '신한', number: '110488665484', holder: '이승진' },
-      { relation: '신부 아버지', bank: '은행명', number: '--------', holder: '이도형' },
-      { relation: '신부 어머니', bank: '은행명', number: '--------', holder: '이향희' }
+      { relation: '신부', bank: '신한', number: '110-488-665484', holder: '이승진' },
+      { relation: '신부 아버지', bank: '신한', number: '110-114-266153', holder: '이도형' },
+      { relation: '신부 어머니', bank: '신한', number: '110-214-203619', holder: '이향희' }
     ]
   },
 
   // 갤러리 이미지 목록 (images 폴더 내 파일명)
   gallery: [
-    'photo1.png',
-    // 'photo2.jpg',
-    // 'photo3.png',
-    // 'photo4.png',
-    // 'photo5.png',
-    // 'photo6.png',
-    // 'photo7.png',
-    // 'photo8.png',
-    // 'photo9.png',
-    // 'photo10.png',
-    // 'photo11.png',
-    // 'photo12.png',
-    // 'photo13.png'
+    "wedding_001.jpeg",
+    "wedding_002.jpeg",
+    "wedding_003.jpeg",
+    "wedding_004.jpeg",
+    "wedding_005.jpeg",
+    "wedding_006.jpeg",
+    "wedding_007.jpeg",
+    "wedding_008.jpeg",
+    "wedding_009.jpeg",
+    "wedding_010.jpeg",
+    "wedding_011.jpeg",
+    "wedding_012.jpeg",
+    "wedding_013.jpeg",
+    "wedding_014.jpeg",
+    "wedding_015.jpeg"
   ]
 };
