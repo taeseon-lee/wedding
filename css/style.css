@@ -78,7 +78,7 @@ body.ready {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../images/main_01.png") 56% bottom / cover no-repeat;
+  background: url("../images/main_01.webp") 56% bottom / cover no-repeat;
 }
 
 .main-section::after {
