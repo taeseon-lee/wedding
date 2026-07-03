@@ -64,22 +64,51 @@ body.ready {
 
 /* 메인 섹션 */
 .main-section {
-  min-height: 100vh;
+  position: relative;
+  min-height: 92svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: linear-gradient(180deg, var(--color-main) 0%, var(--color-bg) 100%);
+  background-color: var(--color-bg);
   text-align: center;
-  padding: 40px 20px;
+  padding: max(72px, 14vh) 20px 56px;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 254, 245, 0.94) 0%,
+      rgba(255, 254, 245, 0.76) 38%,
+      rgba(255, 254, 245, 0.5) 68%,
+      rgba(255, 254, 245, 0.96) 100%
+    ),
+    url("../images/photo1.png") center bottom / cover no-repeat;
+}
+
+.main-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background: linear-gradient(180deg, rgba(255, 254, 245, 0) 0%, var(--color-bg) 100%);
 }
 
 .main-content {
+  position: relative;
+  z-index: 1;
   animation: fadeIn 1.5s ease-out;
+  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.78);
 }
 
 .main-subtitle {
   font-size: 0.9rem;
-  color: var(--color-text-light);
+  color: var(--color-point);
   letter-spacing: 0.2em;
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -88,7 +117,7 @@ body.ready {
 .main-names {
   font-size: 2rem;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;

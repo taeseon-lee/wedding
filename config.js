@@ -58,11 +58,11 @@ const CONFIG = {
   // 계좌 정보
   accounts: {
     groom: [
-      { relation: '신랑', bank: '기업은행', number: '98209524601019', holder: '이태선' },
+      { relation: '신랑', bank: '기업은행', number: '982-095246-01-019', holder: '이태선' },
       { relation: '신랑 아버지', bank: '농협', number: '601099-56-124768', holder: '이병남' },
     ],
     bride: [
-      { relation: '신부', bank: '신한', number: '110488665484', holder: '이승진' },
+      { relation: '신부', bank: '신한', number: '110-488-665484', holder: '이승진' },
       { relation: '신부 아버지', bank: '신한', number: '110-114-266153', holder: '이도형' },
       { relation: '신부 어머니', bank: '신한', number: '110-214-203619', holder: '이향희' }
     ]

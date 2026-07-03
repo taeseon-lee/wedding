@@ -362,14 +362,16 @@ function initCopyButtons() {
 }
 
 function copyToClipboard(text) {
+  const normalizedText = text.replace(/-/g, '');
+
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(normalizedText).then(() => {
       showToast();
     }).catch(() => {
-      fallbackCopy(text);
+      fallbackCopy(normalizedText);
     });
   } else {
-    fallbackCopy(text);
+    fallbackCopy(normalizedText);
   }
 }
 
