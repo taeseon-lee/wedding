@@ -70,20 +70,20 @@ const CONFIG = {
 
   // 갤러리 이미지 목록 (images 폴더 내 파일명)
   gallery: [
-    "wedding_001.jpeg",
-    "wedding_002.jpeg",
-    "wedding_003.jpeg",
-    "wedding_004.jpeg",
-    "wedding_005.jpeg",
-    "wedding_006.jpeg",
-    "wedding_007.jpeg",
-    "wedding_008.jpeg",
-    "wedding_009.jpeg",
-    "wedding_010.jpeg",
-    "wedding_011.jpeg",
-    "wedding_012.jpeg",
-    "wedding_013.jpeg",
-    "wedding_014.jpeg",
-    "wedding_015.jpeg"
+    "wedding_001.webp",
+    "wedding_002.webp",
+    "wedding_003.webp",
+    "wedding_004.webp",
+    "wedding_005.webp",
+    "wedding_006.webp",
+    "wedding_007.webp",
+    "wedding_008.webp",
+    "wedding_009.webp",
+    "wedding_010.webp",
+    "wedding_011.webp",
+    "wedding_012.webp",
+    "wedding_013.webp",
+    "wedding_014.webp",
+    "wedding_015.webp"
   ]
 };

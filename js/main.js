@@ -240,7 +240,7 @@ function getGalleryImagePath(image) {
 }
 
 function getGalleryThumbnailPath(image) {
-  const thumbnailName = image.replace(/\.[^.]+$/, '.png');
+  const thumbnailName = image.replace(/\.[^.]+$/, '.webp');
   return `thumbnail/${thumbnailName}`;
 }
 
