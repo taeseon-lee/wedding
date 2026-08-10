@@ -89,6 +89,12 @@ const CONFIG = {
     "wedding_012.webp",
     "wedding_013.webp",
     "wedding_014.webp",
-    "wedding_015.webp"
+    "wedding_015.webp",
+    "wedding_016.webp",
+    "wedding_017.webp",
+    "wedding_018.webp",
+    "wedding_019.webp",
+    "wedding_020.webp",
+    "wedding_021.webp"
   ]
 };

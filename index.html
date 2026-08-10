@@ -26,52 +26,63 @@
   <!-- 메인 섹션 -->
   <section id="main" class="section main-section">
     <div class="main-content">
-      <p class="main-subtitle">Wedding Invitation</p>
-      <h1 class="main-names">
-        <span class="groom-name"></span>
-        <span class="heart">♥</span>
-        <span class="bride-name"></span>
-      </h1>
-      <p class="main-date"></p>
-      <p class="main-venue"></p>
-    </div>
-  </section>
+      <p class="main-subtitle">The Wedding Of</p>
 
-  <!-- 인사말 섹션 -->
-  <section id="greeting" class="section greeting-section">
-    <div class="section-content">
-      <h2 class="section-title greeting-title"></h2>
-      <div class="greeting-message">
-        <!-- CONFIG.greeting.message에서 생성 -->
+      <div class="main-portrait-wrap">
+        <h1 class="main-names">
+          <span class="groom-name"></span>
+          <span class="bride-name"></span>
+        </h1>
+        <div class="main-photo-frame">
+          <img src="images/main_cover.jpg" alt="신랑 신부 사진" class="main-photo">
+        </div>
+      </div>
+
+      <div class="main-ceremony-info">
+        <p class="main-venue"></p>
+        <p class="main-time"></p>
       </div>
     </div>
   </section>
 
-  <!-- 카운트다운 섹션 -->
-  <section id="countdown" class="section countdown-section">
-    <div class="section-content">
-      <h2 class="section-title">결혼식까지</h2>
-      <div class="countdown-container">
-        <div class="countdown-item">
-          <span class="countdown-number" id="days">0</span>
-          <span class="countdown-label">일</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="hours">0</span>
-          <span class="countdown-label">시간</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="minutes">0</span>
-          <span class="countdown-label">분</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="seconds">0</span>
-          <span class="countdown-label">초</span>
+  <!-- 인사말 + 카운트다운 화면 -->
+  <div id="greeting-page" class="greeting-countdown-page">
+    <!-- 인사말 섹션 -->
+    <section id="greeting" class="section greeting-section">
+      <div class="section-content">
+        <h2 class="section-title greeting-title"></h2>
+        <div class="greeting-message">
+          <!-- CONFIG.greeting.message에서 생성 -->
         </div>
       </div>
-      <p class="countdown-dday" id="dday-text">D-0</p>
-    </div>
-  </section>
+    </section>
+
+    <!-- 카운트다운 섹션 -->
+    <section id="countdown" class="section countdown-section">
+      <div class="section-content">
+        <h2 class="section-title">결혼식까지</h2>
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">일</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">시간</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">분</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">초</span>
+          </div>
+        </div>
+        <p class="countdown-dday" id="dday-text">D-0</p>
+      </div>
+    </section>
+  </div>
 
   <!-- 소개 섹션 -->
   <section id="intro" class="section intro-section">

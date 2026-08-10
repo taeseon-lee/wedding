@@ -71,86 +71,107 @@ body.ready {
   justify-content: center;
   background-color: var(--color-bg);
   text-align: center;
-  padding: 0 20px;
-}
-
-.main-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../images/main_01.webp") 56% bottom / cover no-repeat;
-}
-
-.main-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(250, 239, 221, 0.9) 0%,
-    rgba(242, 224, 198, 0.7) 20%,
-    rgba(250, 239, 221, 0.9) 100%
-  );
+  padding: 0 22px;
 }
 
 .main-content {
   position: relative;
-  z-index: 1;
+  width: min(100%, 370px, calc(66.667svh - 100px));
+  margin: 0 auto;
   isolation: isolate;
-  animation: fadeIn 1.5s ease-out;
-  text-shadow: 0 1px 10px rgba(255, 254, 245, 0.85);
-}
-
-.main-content::before {
-  content: "";
-  position: absolute;
-  inset: -36px -28px;
-  z-index: -1;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(250, 239, 221, 0.72) 0%,
-    rgba(242, 224, 198, 0.44) 48%,
-    rgba(242, 224, 198, 0) 74%
-  );
+  animation: fadeIn 1.2s ease-out;
 }
 
 .main-subtitle {
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  letter-spacing: 0.2em;
-  margin-bottom: 30px;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 56px);
+  left: 0;
+  color: var(--color-point);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  margin: 0;
   text-transform: uppercase;
 }
 
+.main-portrait-wrap {
+  position: relative;
+}
+
 .main-names {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 32px;
+  position: absolute;
+  top: -38px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.heart {
-  color: var(--color-point);
-  font-size: 1.5rem;
-}
-
-.main-date {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  padding: 0 10px;
   color: var(--color-text);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.main-photo-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(166, 139, 106, 0.18);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+  background: transparent;
+  box-shadow: 0 8px 30px rgba(74, 64, 53, 0.08);
+}
+
+.main-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.main-ceremony-info {
+  position: absolute;
+  top: calc(100% + 32px);
+  left: 0;
+  width: 100%;
 }
 
 .main-venue {
-  font-size: 0.95rem;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.main-time {
+  margin-top: 7px;
   color: var(--color-text-light);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
 }
 
 /* 인사말 섹션 */
+.greeting-countdown-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
 .greeting-section {
+  flex: 3 1 0;
+  display: flex;
+  align-items: center;
+  padding: 42px 20px 30px;
   background-color: var(--color-white);
+}
+
+.greeting-section .section-content,
+.countdown-section .section-content {
+  width: 100%;
 }
 
 .greeting-message {
@@ -168,6 +189,10 @@ body.ready {
 
 /* 카운트다운 섹션 */
 .countdown-section {
+  flex: 2 1 0;
+  display: flex;
+  align-items: center;
+  padding: 34px 20px;
   background-color: var(--color-bg);
 }
 
@@ -777,8 +802,12 @@ body.ready {
     max-width: 500px;
   }
 
-  .main-names {
-    font-size: 2.5rem;
+  .main-section {
+    padding: 40px 24px;
+  }
+
+  .main-content {
+    width: min(100%, 430px, calc(66.667svh - 100px));
   }
 
   .countdown-container {
@@ -798,8 +827,16 @@ body.ready {
 /* 작은 화면 대응 */
 @media (max-width: 360px) {
   .main-names {
-    font-size: 1.6rem;
-    gap: 10px;
+    top: -34px;
+    padding: 0 7px;
+  }
+
+  .main-subtitle {
+    bottom: calc(100% + 52px);
+  }
+
+  .main-ceremony-info {
+    top: calc(100% + 28px);
   }
 
   .countdown-container {
