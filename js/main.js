@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initFromConfig();
+  initReceptionModal();
   initCountdown();
   initGallery();
   initAccordion();
@@ -63,6 +64,79 @@ function initFromConfig() {
   document.getElementById('footer-names').textContent = `${groomGivenName} ♥ ${brideGivenName}`;
   const d = wedding.date;
   document.getElementById('footer-date').textContent = `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
+}
+
+// ============================================
+// 신부 측 피로연 안내 모달
+// ============================================
+const RECEPTION_HIDE_UNTIL_KEY = 'weddingReceptionHideUntil';
+
+function initReceptionModal() {
+  const reception = CONFIG.reception;
+  const modal = document.getElementById('reception-modal');
+
+  if (!reception || !modal) return;
+
+  document.getElementById('reception-modal-title').textContent = reception.title;
+  document.getElementById('reception-message').innerHTML = reception.message
+    .split('\n')
+    .map(line => line ? `<p>${line}</p>` : '<br>')
+    .join('');
+  document.getElementById('reception-date').textContent = reception.date;
+  document.getElementById('reception-time').textContent = reception.time;
+  document.getElementById('reception-venue').textContent = reception.venue;
+  document.getElementById('reception-kakao-map').href = reception.kakaoMapUrl;
+  document.getElementById('reception-naver-map').href = reception.naverMapUrl;
+
+  if (shouldShowReceptionModal()) {
+    modal.hidden = false;
+    document.body.classList.add('reception-modal-open');
+    requestAnimationFrame(() => {
+      modal.classList.add('active');
+      document.getElementById('reception-modal-close').focus();
+    });
+  }
+
+  document.getElementById('reception-modal-close').addEventListener('click', closeReceptionModal);
+  document.getElementById('reception-hide-today').addEventListener('click', hideReceptionModalToday);
+  modal.querySelector('[data-reception-close]').addEventListener('click', closeReceptionModal);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('active')) {
+      closeReceptionModal();
+    }
+  });
+}
+
+function shouldShowReceptionModal() {
+  try {
+    const hiddenUntil = Number(localStorage.getItem(RECEPTION_HIDE_UNTIL_KEY));
+    return !hiddenUntil || Date.now() >= hiddenUntil;
+  } catch (error) {
+    return true;
+  }
+}
+
+function hideReceptionModalToday() {
+  const tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
+
+  try {
+    localStorage.setItem(RECEPTION_HIDE_UNTIL_KEY, String(tomorrow.getTime()));
+  } catch (error) {
+    // 저장소 사용이 제한된 환경에서는 이번 방문에만 닫습니다.
+  }
+
+  closeReceptionModal();
+}
+
+function closeReceptionModal() {
+  const modal = document.getElementById('reception-modal');
+  modal.classList.remove('active');
+  document.body.classList.remove('reception-modal-open');
+  window.setTimeout(() => {
+    modal.hidden = true;
+  }, 250);
 }
 
 // ============================================

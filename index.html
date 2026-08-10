@@ -23,6 +23,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- 신부 측 피로연 안내 모달 -->
+  <div class="reception-modal" id="reception-modal" role="dialog" aria-modal="true" aria-labelledby="reception-modal-title" hidden>
+    <div class="reception-modal-backdrop" data-reception-close></div>
+    <div class="reception-modal-card" role="document">
+      <button class="reception-modal-close" id="reception-modal-close" type="button" aria-label="피로연 안내 닫기">&times;</button>
+
+      <h2 class="reception-modal-title" id="reception-modal-title"></h2>
+
+      <div class="reception-modal-message" id="reception-message"></div>
+
+      <div class="reception-modal-details">
+        <div class="reception-detail-item">
+          <span class="reception-detail-label">일시</span>
+          <div class="reception-detail-content">
+            <p class="reception-modal-date" id="reception-date"></p>
+            <p class="reception-modal-time" id="reception-time"></p>
+          </div>
+        </div>
+        <div class="reception-detail-divider"></div>
+        <div class="reception-detail-item">
+          <span class="reception-detail-label">장소</span>
+          <div class="reception-detail-content">
+            <p class="reception-modal-venue" id="reception-venue"></p>
+            <div class="reception-map-buttons">
+              <a id="reception-kakao-map" class="reception-map-button kakao" href="#" target="_blank" rel="noopener noreferrer">
+                <img src="images/kakao-map-icon.png" alt="" aria-hidden="true">
+                카카오맵
+              </a>
+              <a id="reception-naver-map" class="reception-map-button naver" href="#" target="_blank" rel="noopener noreferrer">
+                <img src="images/naver-map-icon.png" alt="" aria-hidden="true">
+                네이버지도
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reception-modal-footer">
+        <button class="reception-hide-today" id="reception-hide-today" type="button">오늘 하루 보지 않기</button>
+      </div>
+    </div>
+  </div>
+
   <!-- 메인 섹션 -->
   <section id="main" class="section main-section">
     <div class="main-content">
