@@ -10,12 +10,68 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initAccordion();
   initCopyButtons();
+  initGreetingScrollAnchor();
 
   // 폰트 로드 완료 후 화면 표시 (FOUT 방지)
   document.fonts.ready.then(() => {
     document.body.classList.add('ready');
   });
 });
+
+// ============================================
+// 대문 → 인사말 섹션 스크롤 앵커
+// ============================================
+function initGreetingScrollAnchor() {
+  const greetingPage = document.getElementById('greeting-page');
+  let touchStartY = 0;
+  let isAnchoring = false;
+
+  const isNearPageTop = () => window.scrollY <= Math.min(120, window.innerHeight * 0.15);
+
+  const moveToGreeting = () => {
+    if (isAnchoring || !isNearPageTop()) return false;
+
+    isAnchoring = true;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    greetingPage.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+
+    window.setTimeout(() => {
+      isAnchoring = false;
+    }, reduceMotion ? 0 : 700);
+
+    return true;
+  };
+
+  window.addEventListener('wheel', (event) => {
+    if (event.deltaY > 0 && (isAnchoring || moveToGreeting())) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchstart', (event) => {
+    touchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (event) => {
+    const currentY = event.touches[0].clientY;
+    if (touchStartY - currentY > 12 && (isAnchoring || moveToGreeting())) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  window.addEventListener('keydown', (event) => {
+    const scrollKeys = ['ArrowDown', 'PageDown', ' '];
+    const isFormControl = event.target instanceof Element &&
+      event.target.matches('input, textarea, select, button');
+
+    if (!isFormControl && scrollKeys.includes(event.key) && (isAnchoring || moveToGreeting())) {
+      event.preventDefault();
+    }
+  });
+}
 
 // ============================================
 // CONFIG → HTML 렌더링
@@ -28,10 +84,11 @@ function initFromConfig() {
   const brideGivenName = bride.name.slice(1);
 
   // 메인 섹션
-  document.querySelector('.groom-name').textContent = groomGivenName;
-  document.querySelector('.bride-name').textContent = brideGivenName;
-  document.querySelector('.main-date').textContent = wedding.dateText;
+  document.querySelector('.groom-name').textContent = groom.name;
+  document.querySelector('.bride-name').textContent = bride.name;
+  document.querySelector('.main-photo').alt = `신랑 ${groom.name}과 신부 ${bride.name}`;
   document.querySelector('.main-venue').textContent = `${wedding.venue} ${wedding.hall}`;
+  document.querySelector('.main-time').textContent = wedding.dateText;
 
   // 인사말 섹션
   document.querySelector('.greeting-title').textContent = greeting.title;
@@ -264,8 +321,8 @@ function renderAccounts(accounts) {
   };
 
   container.innerHTML =
-    renderGroup('신랑측 계좌번호', accounts.groom, 'groom-accounts') +
-    renderGroup('신부측 계좌번호', accounts.bride, 'bride-accounts');
+    renderGroup('신랑측에게', accounts.groom, 'groom-accounts') +
+    renderGroup('신부측에게', accounts.bride, 'bride-accounts');
 }
 
 // ============================================
