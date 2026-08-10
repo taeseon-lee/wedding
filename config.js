@@ -5,6 +5,19 @@
 // ============================================
 
 const CONFIG = {
+  // 신부 측 피로연 안내 팝업
+  reception: {
+    title: '신부 측 피로연 안내',
+    message: `먼 거리로 인해 본식에 참석하기 어려운 분들을 위해 혼례에 앞서 작은 피로연 자리를 마련하였습니다.
+
+부디 함께하시어 두 사람의 앞날을 축복해 주시면 감사하겠습니다.`,
+    date: '2026년 10월 24일 토요일',
+    time: '오전 11시 ~ 오후 2시',
+    venue: '해남군 황산면 황산식당',
+    kakaoMapUrl: 'https://kko.to/LTd0LS-pRq',
+    naverMapUrl: 'https://naver.me/51u1gWfb'
+  },
+
   // 결혼식 정보
   wedding: {
     date: new Date('2026-11-29T14:00:00'),
