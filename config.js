@@ -25,7 +25,7 @@ const CONFIG = {
     venue: '문정 루이비스',
     hall: '그레이스홀',
     address: '서울특별시 송파구 문정동 645-2 B1층',
-    mapUrl: 'https://kko.to/iBaoSNDZ_1',
+    kakaoMapUrl: 'https://kko.to/iBaoSNDZ_1',
     naverMapUrl: 'https://naver.me/Gctrli34'
   },
 

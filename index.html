@@ -88,9 +88,8 @@
     </div>
   </section>
 
-  <!-- 인사말 + 카운트다운 화면 -->
-  <div id="greeting-page" class="greeting-countdown-page">
-    <!-- 인사말 섹션 -->
+  <!-- 인사말 + 신랑 신부 소개 화면 -->
+  <div id="greeting-page" class="greeting-intro-page">
     <section id="greeting" class="section greeting-section">
       <div class="section-content">
         <h2 class="section-title greeting-title"></h2>
@@ -100,10 +99,38 @@
       </div>
     </section>
 
-    <!-- 카운트다운 섹션 -->
-    <section id="countdown" class="section countdown-section">
+    <section id="intro" class="section intro-section">
       <div class="section-content">
-        <h2 class="section-title">결혼식까지</h2>
+        <div class="couple-info" id="couple-info">
+          <!-- CONFIG.groom/bride에서 생성 -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 예식 안내 + 카운트다운 섹션 -->
+  <section id="calendar" class="section calendar-section">
+    <div class="section-content">
+      <h2 class="section-title">예식 안내</h2>
+      <p class="calendar-date-text"></p>
+      <div class="calendar-container">
+        <div class="calendar-header" id="calendar-month"></div>
+        <div class="calendar-weekdays">
+          <span>일</span>
+          <span>월</span>
+          <span>화</span>
+          <span>수</span>
+          <span>목</span>
+          <span>금</span>
+          <span>토</span>
+        </div>
+        <div class="calendar-days" id="calendar-days">
+          <!-- CONFIG.wedding.date에서 생성 -->
+        </div>
+      </div>
+
+      <div id="countdown" class="calendar-countdown">
+        <h3 class="section-title countdown-title">결혼식까지</h3>
         <div class="countdown-container">
           <div class="countdown-item">
             <span class="countdown-number" id="days">0</span>
@@ -124,15 +151,6 @@
         </div>
         <p class="countdown-dday" id="dday-text">D-0</p>
       </div>
-    </section>
-  </div>
-
-  <!-- 소개 섹션 -->
-  <section id="intro" class="section intro-section">
-    <div class="section-content">
-      <div class="couple-info" id="couple-info">
-        <!-- CONFIG.groom/bride에서 생성 -->
-      </div>
     </div>
   </section>
 
@@ -144,29 +162,6 @@
         <!-- CONFIG.gallery에서 생성 -->
       </div>
       <button class="gallery-toggle" id="gallery-toggle">더 보기</button>
-    </div>
-  </section>
-
-  <!-- 달력 섹션 -->
-  <section id="calendar" class="section calendar-section">
-    <div class="section-content">
-      <h2 class="section-title">예식 안내</h2>
-      <p class="calendar-date-text"></p>
-      <div class="calendar-container">
-        <div class="calendar-header" id="calendar-month"></div>
-        <div class="calendar-weekdays">
-          <span>일</span>
-          <span>월</span>
-          <span>화</span>
-          <span>수</span>
-          <span>목</span>
-          <span>금</span>
-          <span>토</span>
-        </div>
-        <div class="calendar-days" id="calendar-days">
-          <!-- CONFIG.wedding.date에서 생성 -->
-        </div>
-      </div>
     </div>
   </section>
 
@@ -187,15 +182,11 @@
 
         <div class="map-buttons">
           <a id="kakao-map-btn" href="#" target="_blank" class="map-btn kakao">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-            </svg>
+            <img src="images/kakao-map-icon.png" alt="" class="map-btn-icon">
             카카오맵
           </a>
           <a id="naver-map-btn" href="#" target="_blank" class="map-btn naver">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
+            <img src="images/naver-map-icon.png" alt="" class="map-btn-icon">
             네이버지도
           </a>
         </div>
