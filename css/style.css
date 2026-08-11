@@ -12,6 +12,7 @@
   --color-text-light: #7A6F63;
   --color-white: #FFFFFF;
   --color-border: #E8E0D5;
+  --color-soft-surface: rgba(212, 196, 176, 0.16);
   --font-serif: 'Noto Serif KR', serif;
 }
 
@@ -155,22 +156,19 @@ body.ready {
 }
 
 /* 인사말 섹션 */
-.greeting-countdown-page {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-}
-
-.greeting-section {
-  flex: 3 1 0;
-  display: flex;
-  align-items: center;
-  padding: 42px 20px 30px;
+.greeting-intro-page {
   background-color: var(--color-white);
 }
 
-.greeting-section .section-content,
-.countdown-section .section-content {
+.greeting-section {
+  display: flex;
+  align-items: center;
+  padding: 64px 20px 44px;
+  overflow: visible;
+  background-color: var(--color-white);
+}
+
+.greeting-section .section-content {
   width: 100%;
 }
 
@@ -185,15 +183,6 @@ body.ready {
   display: block;
   content: "";
   margin-top: 15px;
-}
-
-/* 카운트다운 섹션 */
-.countdown-section {
-  flex: 2 1 0;
-  display: flex;
-  align-items: center;
-  padding: 34px 20px;
-  background-color: var(--color-bg);
 }
 
 .countdown-container {
@@ -229,7 +218,17 @@ body.ready {
 
 /* 소개 섹션 */
 .intro-section {
+  padding: 0 20px 56px;
   background-color: var(--color-white);
+}
+
+.intro-section::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 0 auto 26px;
+  background-color: var(--color-border);
 }
 
 .couple-info {
@@ -245,19 +244,24 @@ body.ready {
 
 .parents {
   font-size: 0.85rem;
-  color: var(--color-text-light);
-  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 10px;
 }
 
 .relation {
   font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  margin-left: 0.28em;
 }
 
 .person-name {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 17px;
+  color: var(--color-text-light);
+  letter-spacing: 0.08em;
 }
 
 .phone-link {
@@ -285,7 +289,7 @@ body.ready {
 
 /* 갤러리 섹션 */
 .gallery-section {
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
 }
 
 .gallery-grid {
@@ -337,7 +341,7 @@ body.ready {
 
 /* 달력 섹션 */
 .calendar-section {
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
 }
 
 .calendar-date-text {
@@ -371,11 +375,11 @@ body.ready {
 }
 
 .calendar-weekdays span:first-child {
-  color: #C77575;
+  color: var(--color-point);
 }
 
 .calendar-weekdays span:last-child {
-  color: #7596C7;
+  color: var(--color-point);
 }
 
 .calendar-days {
@@ -396,11 +400,11 @@ body.ready {
 }
 
 .calendar-days span.sunday {
-  color: #C77575;
+  color: var(--color-point);
 }
 
 .calendar-days span.saturday {
-  color: #7596C7;
+  color: var(--color-point);
 }
 
 .calendar-days span.wedding-day {
@@ -408,6 +412,16 @@ body.ready {
   color: var(--color-white) !important;
   border-radius: 50%;
   font-weight: 500;
+}
+
+.calendar-countdown {
+  margin-top: 48px;
+  padding-top: 42px;
+  border-top: 1px solid var(--color-border);
+}
+
+.calendar-countdown .countdown-title {
+  margin-bottom: 26px;
 }
 
 /* 오시는 길 섹션 */
@@ -473,6 +487,14 @@ body.ready {
   font-size: 0.9rem;
   font-family: var(--font-serif);
   transition: all 0.3s;
+}
+
+.map-btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 .map-btn:hover {
@@ -544,7 +566,8 @@ body.ready {
 }
 
 .accordion-group {
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -555,7 +578,7 @@ body.ready {
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  background-color: var(--color-main);
+  background-color: var(--color-soft-surface);
   border: none;
   cursor: pointer;
   font-family: var(--font-serif);
@@ -563,7 +586,7 @@ body.ready {
 }
 
 .accordion-header:hover {
-  background-color: #c9b8a3;
+  background-color: rgba(212, 196, 176, 0.24);
 }
 
 .accordion-title {
@@ -679,8 +702,9 @@ body.ready {
 /* 푸터 */
 .footer {
   text-align: center;
-  padding: 40px 20px;
-  background-color: var(--color-main);
+  padding: 25px;
+  background-color: var(--color-soft-surface);
+  /*border-top: 1px solid var(--color-border);*/
   color: var(--color-text);
   font-size: 0.9rem;
 }
@@ -849,5 +873,24 @@ body.ready {
 
   .countdown-item {
     min-width: 50px;
+  }
+}
+
+/* 화면 높이가 충분할 때 인사말과 신랑·신부 소개를 한 화면으로 구성 */
+@media (min-height: 820px) {
+  .greeting-intro-page {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .greeting-section {
+    flex: 1 1 auto;
+    padding: 64px 20px 32px;
+  }
+
+  .intro-section {
+    flex: 0 0 auto;
+    padding: 0 20px 52px;
   }
 }

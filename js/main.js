@@ -22,13 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 function initGreetingScrollAnchor() {
   const greetingPage = document.getElementById('greeting-page');
+  const anchorViewport = window.matchMedia('(min-height: 820px)');
   let touchStartY = 0;
+  let touchStartedBeforeGreeting = false;
   let isAnchoring = false;
 
-  const isNearPageTop = () => window.scrollY <= Math.min(120, window.innerHeight * 0.15);
+  const isBeforeGreeting = () => window.scrollY < greetingPage.offsetTop - 1;
 
-  const moveToGreeting = () => {
-    if (isAnchoring || !isNearPageTop()) return false;
+  const moveToGreeting = (startedBeforeGreeting = isBeforeGreeting()) => {
+    if (!anchorViewport.matches || isAnchoring || !startedBeforeGreeting) return false;
 
     isAnchoring = true;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -52,11 +54,13 @@ function initGreetingScrollAnchor() {
 
   window.addEventListener('touchstart', (event) => {
     touchStartY = event.touches[0].clientY;
+    touchStartedBeforeGreeting = anchorViewport.matches && isBeforeGreeting();
   }, { passive: true });
 
   window.addEventListener('touchmove', (event) => {
     const currentY = event.touches[0].clientY;
-    if (touchStartY - currentY > 12 && (isAnchoring || moveToGreeting())) {
+    if (touchStartY - currentY > 12 &&
+        (isAnchoring || moveToGreeting(touchStartedBeforeGreeting))) {
       event.preventDefault();
     }
   }, { passive: false });
@@ -108,8 +112,8 @@ function initFromConfig() {
   document.querySelector('.venue-name').textContent = wedding.venue;
   document.querySelector('.hall-name').textContent = wedding.hall;
   document.querySelector('.address').textContent = wedding.address;
-  document.getElementById('map-link').href = wedding.mapUrl;
-  document.getElementById('kakao-map-btn').href = wedding.mapUrl;
+  document.getElementById('map-link').href = wedding.naverMapUrl;
+  document.getElementById('kakao-map-btn').href = wedding.kakaoMapUrl;
   document.getElementById('naver-map-btn').href = wedding.naverMapUrl;
   renderTransportInfo(location);
 
