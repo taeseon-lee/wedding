@@ -70,7 +70,8 @@ const CONFIG = {
   location: {
     subway: '8호선 문정역 3번 출구 도보 9분',
     parking: '웨딩홀 주차장 이용 시 2시간 무료 주차',
-    shuttle: '문정역 ↔ 웨딩홀 셔틀버스 운행'
+    shuttle: '문정역 ↔ 웨딩홀 셔틀버스 운행',
+    charterBus: '신랑측 광주 대절버스는 추후 안내드리겠습니다'
   },
 
   // 계좌 정보
