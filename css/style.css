@@ -154,15 +154,14 @@ body.reception-modal-open {
 
 .reception-detail-item {
   display: grid;
-  grid-template-columns: 34px 1fr;
-  align-items: start;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
   gap: 12px;
 }
 
 .reception-detail-label {
-  padding-top: 3px;
   color: var(--color-text-light);
-  font-size: 0.73rem;
+  font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: 0.06em;
@@ -171,7 +170,6 @@ body.reception-modal-open {
 
 .reception-detail-content {
   min-width: 0;
-  padding-top: 1px;
 }
 
 .reception-modal-date,
