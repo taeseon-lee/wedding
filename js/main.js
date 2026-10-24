@@ -128,26 +128,28 @@ function initFromConfig() {
 }
 
 // ============================================
-// 신부 측 피로연 안내 모달
+// 안내 팝업 (현재 내용: 신랑 측 대절버스)
 // ============================================
-const RECEPTION_HIDE_UNTIL_KEY = 'weddingReceptionHideUntil';
+const RECEPTION_HIDE_UNTIL_KEY = 'weddingCharterBusHideUntil';
 
 function initReceptionModal() {
-  const reception = CONFIG.reception;
+  const notice = CONFIG.charterBus;
   const modal = document.getElementById('reception-modal');
 
-  if (!reception || !modal) return;
+  if (!notice || !modal) return;
 
-  document.getElementById('reception-modal-title').textContent = reception.title;
-  document.getElementById('reception-message').innerHTML = reception.message
+  document.getElementById('reception-modal-title').textContent = notice.title;
+  document.getElementById('reception-message').innerHTML = notice.message
     .split('\n')
     .map(line => line ? `<p>${line}</p>` : '<br>')
     .join('');
-  document.getElementById('reception-date').textContent = reception.date;
-  document.getElementById('reception-time').textContent = reception.time;
-  document.getElementById('reception-venue').textContent = reception.venue;
-  document.getElementById('reception-kakao-map').href = reception.kakaoMapUrl;
-  document.getElementById('reception-naver-map').href = reception.naverMapUrl;
+  // 탑승 장소·시간 미정이라 index.html의 상세 블록과 함께 주석 처리.
+  // 확정되면 config.js의 charterBus 값과 같이 주석 해제.
+  // document.getElementById('reception-date').textContent = notice.date;
+  // document.getElementById('reception-time').textContent = notice.time;
+  // document.getElementById('reception-venue').textContent = notice.venue;
+  // document.getElementById('reception-kakao-map').href = notice.kakaoMapUrl;
+  // document.getElementById('reception-naver-map').href = notice.naverMapUrl;
 
   if (shouldShowReceptionModal()) {
     modal.hidden = false;

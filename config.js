@@ -5,18 +5,34 @@
 // ============================================
 
 const CONFIG = {
-  // 신부 측 피로연 안내 팝업
-  reception: {
-    title: '신부 측 피로연 안내',
-    message: `먼 거리로 인해 본식에 참석하기 어려운 분들을 위해 혼례에 앞서 작은 피로연 자리를 마련하였습니다.
+  // 신랑 측 대절버스 안내 팝업
+  // ※ 탑승 장소·시간이 정해지면 아래 date/time/venue/지도 링크 주석을 풀고,
+  //   index.html의 .reception-modal-details 블록과
+  //   js/main.js의 상세 정보 설정부도 함께 주석을 풀어야 화면에 나옵니다.
+  charterBus: {
+    title: '신랑 측 대절 버스 안내',
+    message: `먼 거리로 인해 본식에 참석하기 어려운 분들을 위해 광주에서 출발하는 대절버스를 마련하였습니다.
 
-부디 함께하시어 두 사람의 앞날을 축복해 주시면 감사하겠습니다.`,
-    date: '2026년 10월 24일 토요일',
-    time: '오전 11시 ~ 오후 2시',
-    venue: '해남군 황산면 황산식당',
-    kakaoMapUrl: 'https://kko.to/LTd0LS-pRq',
-    naverMapUrl: 'https://naver.me/51u1gWfb'
+탑승 장소와 시간이 정해지면 연락드리면서 업데이트 하겠습니다. 필요하시면 연락주세요🙇‍♂️`,
+    // date: '',
+    // time: '',
+    // venue: '',
+    // kakaoMapUrl: '',
+    // naverMapUrl: ''
   },
+
+  // 신부 측 피로연 안내 팝업 (2026-10-24 종료 — 보존용)
+  // reception: {
+  //   title: '신부 측 피로연 안내',
+  //   message: `먼 거리로 인해 본식에 참석하기 어려운 분들을 위해 혼례에 앞서 작은 피로연 자리를 마련하였습니다.
+  //
+  // 부디 함께하시어 두 사람의 앞날을 축복해 주시면 감사하겠습니다.`,
+  //   date: '2026년 10월 24일 토요일',
+  //   time: '오전 11시 ~ 오후 2시',
+  //   venue: '해남군 황산면 황산식당',
+  //   kakaoMapUrl: 'https://kko.to/LTd0LS-pRq',
+  //   naverMapUrl: 'https://naver.me/51u1gWfb'
+  // },
 
   // 결혼식 정보
   wedding: {
