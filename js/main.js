@@ -143,13 +143,8 @@ function initReceptionModal() {
     .split('\n')
     .map(line => line ? `<p>${line}</p>` : '<br>')
     .join('');
-  // 탑승 장소·시간 미정이라 index.html의 상세 블록과 함께 주석 처리.
-  // 확정되면 config.js의 charterBus 값과 같이 주석 해제.
-  // document.getElementById('reception-date').textContent = notice.date;
-  // document.getElementById('reception-time').textContent = notice.time;
-  // document.getElementById('reception-venue').textContent = notice.venue;
-  // document.getElementById('reception-kakao-map').href = notice.kakaoMapUrl;
-  // document.getElementById('reception-naver-map').href = notice.naverMapUrl;
+  document.getElementById('reception-date').textContent = notice.date;
+  renderCharterStops(notice.stops);
 
   if (shouldShowReceptionModal()) {
     modal.hidden = false;
@@ -200,6 +195,34 @@ function closeReceptionModal() {
   window.setTimeout(() => {
     modal.hidden = true;
   }, 250);
+}
+
+function renderCharterStops(stops) {
+  const container = document.getElementById('charter-stops');
+
+  if (!container || !stops) return;
+
+  const mapButton = (url, type, label, icon) => url
+    ? `<a class="reception-map-button ${type}" href="${url}" target="_blank" rel="noopener noreferrer">
+         <img src="images/${icon}" alt="" aria-hidden="true">
+         ${label}
+       </a>`
+    : '';
+
+  container.innerHTML = stops.map(stop => {
+    const buttons = [
+      mapButton(stop.kakaoMapUrl, 'kakao', '카카오맵', 'kakao-map-icon.png'),
+      mapButton(stop.naverMapUrl, 'naver', '네이버지도', 'naver-map-icon.png')
+    ].filter(Boolean).join('');
+
+    return `
+      <div class="charter-stop">
+        <p class="charter-stop-time">${stop.time}</p>
+        <p class="charter-stop-place">${stop.place}</p>
+        ${stop.detail ? `<p class="charter-stop-detail">${stop.detail}</p>` : ''}
+        ${buttons ? `<div class="reception-map-buttons">${buttons}</div>` : ''}
+      </div>`;
+  }).join('');
 }
 
 // ============================================

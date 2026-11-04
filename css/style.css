@@ -194,6 +194,33 @@ body.reception-modal-open {
   background: rgba(166, 139, 106, 0.14);
 }
 
+.charter-stop + .charter-stop {
+  margin-top: 14px;
+}
+
+.charter-stop-time {
+  color: var(--color-point);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.charter-stop-place {
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.charter-stop-detail {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
 .reception-map-buttons {
   display: flex;
   flex-wrap: wrap;
