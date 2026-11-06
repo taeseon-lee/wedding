@@ -309,7 +309,7 @@ function renderTransportInfo(location) {
       <span class="transport-icon">${item.icon}</span>
       <div class="transport-text">
         <strong>${item.label}</strong>
-        <p>${item.text}</p>
+        <p>${item.text.replace(/\n/g, '<br>')}</p>
       </div>
     </div>`).join('');
 }

@@ -821,6 +821,7 @@ body.reception-modal-open {
 .transport-text p {
   font-size: 0.85rem;
   color: var(--color-text-light);
+  word-break: keep-all;
 }
 
 /* 계좌번호 섹션 */
