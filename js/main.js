@@ -298,8 +298,8 @@ function renderCalendar(date) {
 function renderTransportInfo(location) {
   const items = [
     { icon: '🚇', label: '지하철', text: location.subway },
-    { icon: '🚗', label: '주차', text: location.parking },
     { icon: '🚌', label: '셔틀버스', text: location.shuttle },
+    { icon: '🚗', label: '주차', text: location.parking },
     { icon: '🚍', label: '대절버스', text: location.charterBus }
   ].filter(item => item.text);
 
