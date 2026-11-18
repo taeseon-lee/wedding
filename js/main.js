@@ -19,6 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
+// 기기 시간대와 무관하게 한국 시간 기준 연·월·일을 얻는다.
+// getFullYear()/getMonth()/getDate()는 보는 사람의 로컬 날짜를 돌려주므로
+// 해외에서 보면 예식일이 하루 어긋난다.
+// ============================================
+function toKstParts(date) {
+  const [year, month, day] = date
+    .toLocaleDateString('en-CA', { timeZone: 'Asia/Seoul' })
+    .split('-')
+    .map(Number);
+
+  return { year, month: month - 1, day };
+}
+
+// ============================================
 // 대문 → 인사말 섹션 스크롤 앵커
 // ============================================
 function initGreetingScrollAnchor() {
@@ -123,8 +137,8 @@ function initFromConfig() {
 
   // 푸터
   document.getElementById('footer-names').textContent = `${groomGivenName} ♥ ${brideGivenName}`;
-  const d = wedding.date;
-  document.getElementById('footer-date').textContent = `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
+  const d = toKstParts(wedding.date);
+  document.getElementById('footer-date').textContent = `${d.year}. ${d.month + 1}. ${d.day}`;
 }
 
 // ============================================
@@ -141,7 +155,7 @@ function initReceptionModal() {
   document.getElementById('reception-modal-title').textContent = notice.title;
   document.getElementById('reception-message').innerHTML = notice.message
     .split('\n')
-    .map(line => line ? `<p>${line}</p>` : '<br>')
+    .map(line => line ? `<p>${line}</p>` : '<div class="message-gap"></div>')
     .join('');
   document.getElementById('reception-date').textContent = notice.date;
   renderCharterStops(notice.stops);
@@ -167,6 +181,11 @@ function initReceptionModal() {
 }
 
 function shouldShowReceptionModal() {
+  const hideAfter = CONFIG.charterBus && CONFIG.charterBus.hideAfter;
+
+  // 안내가 소용없어지는 시각이 지나면 저장소 상태와 무관하게 띄우지 않는다
+  if (hideAfter && Date.now() >= hideAfter.getTime()) return false;
+
   try {
     const hiddenUntil = Number(localStorage.getItem(RECEPTION_HIDE_UNTIL_KEY));
     return !hiddenUntil || Date.now() >= hiddenUntil;
@@ -261,9 +280,7 @@ function renderCoupleInfo(groom, bride) {
 // 달력 동적 생성
 // ============================================
 function renderCalendar(date) {
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const weddingDay = date.getDate();
+  const { year, month, day: weddingDay } = toKstParts(date);
 
   const firstDayOfWeek = new Date(year, month, 1).getDay();
   const lastDate = new Date(year, month + 1, 0).getDate();
@@ -295,6 +312,16 @@ function renderCalendar(date) {
 // ============================================
 // 교통정보 렌더링
 // ============================================
+const PHONE_ICON = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+
+// 휴대폰 번호를 눌러서 바로 걸 수 있는 버튼으로 바꾼다
+function withCallButtons(text) {
+  return text.replace(
+    /(01[0-9]-\d{3,4}-\d{4})/g,
+    `<a class="transport-call" href="tel:$1">${PHONE_ICON}$1</a>`
+  );
+}
+
 function renderTransportInfo(location) {
   const items = [
     { icon: '🚇', label: '지하철', text: location.subway },
@@ -309,7 +336,7 @@ function renderTransportInfo(location) {
       <span class="transport-icon">${item.icon}</span>
       <div class="transport-text">
         <strong>${item.label}</strong>
-        <p>${item.text.replace(/\n/g, '<br>')}</p>
+        <p>${withCallButtons(item.text).replace(/\n/g, '<br>')}</p>
       </div>
     </div>`).join('');
 }

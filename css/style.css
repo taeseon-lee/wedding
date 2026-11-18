@@ -83,10 +83,10 @@ body.reception-modal-open {
   max-height: calc(100svh - 48px);
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 50px 28px 0;
+  padding: 34px 28px 0;
   background: var(--color-bg);
   border: 1px solid rgba(166, 139, 106, 0.35);
-  border-radius: 18px;
+  border-radius: 12px;
   box-shadow: 0 18px 55px rgba(54, 46, 38, 0.28);
   text-align: center;
   transform: scale(0.97);
@@ -97,23 +97,6 @@ body.reception-modal-open {
   transform: scale(1);
 }
 
-.reception-modal-close {
-  position: absolute;
-  top: 17px;
-  right: 16px;
-  z-index: 1;
-  width: 36px;
-  height: 36px;
-  border: 0;
-  background: transparent;
-  color: var(--color-text-light);
-  font-family: sans-serif;
-  font-size: 1.7rem;
-  font-weight: 300;
-  line-height: 1;
-  cursor: pointer;
-}
-
 .reception-modal-ornament {
   color: var(--color-point);
   font-size: 1.25rem;
@@ -122,7 +105,7 @@ body.reception-modal-open {
 }
 
 .reception-modal-title {
-  color: var(--color-point);
+  color: #000;
   font-size: 1.35rem;
   font-weight: 500;
   line-height: 1.5;
@@ -138,9 +121,9 @@ body.reception-modal-open {
   word-break: keep-all;
 }
 
-.reception-modal-message br {
-  display: block;
-  height: 6px;
+/* 문단 사이 간격. <br>은 height가 먹지 않아 빈 div로 대체 */
+.reception-modal-message .message-gap {
+  height: 13px;
 }
 
 .reception-modal-details {
@@ -290,28 +273,50 @@ body.reception-modal-open {
 .reception-modal-footer {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 28px -28px 0;
-  padding: 10px 20px 20px;
+  /* 주 동작(닫기) 위, 부차 선택지 아래로 두 줄 배치 */
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  margin: 16px 0 0;
+  padding: 0 0 18px;
 }
 
-.reception-hide-today {
-  padding: 5px 10px;
-  border: 0;
-  background: transparent;
-  color: var(--color-text-light);
+/* 주 동작 — 채운 버튼 */
+.reception-modal-close {
+  padding: 13px 20px;
+  border: 1px solid var(--color-main);
+  border-radius: 12px;
+  background: var(--color-main);
+  color: var(--color-text);
   font-family: var(--font-serif);
-  font-size: 0.8rem;
-  font-weight: 300;
+  font-size: 0.95rem;
+  font-weight: 500;
   letter-spacing: 0.02em;
   cursor: pointer;
-  opacity: 0.72;
   transition: opacity 0.2s ease;
 }
 
+.reception-modal-close:hover {
+  opacity: 0.88;
+}
+
+/* 부차 선택지 — 아래 작은 글씨 */
+.reception-hide-today {
+  padding: 10px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-light);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
 .reception-hide-today:hover {
-  opacity: 1;
+  color: var(--color-text);
 }
 
 .reception-modal-close:focus-visible,
@@ -802,7 +807,7 @@ body.reception-modal-open {
   gap: 15px;
   padding: 15px;
   background-color: var(--color-white);
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 
@@ -822,6 +827,27 @@ body.reception-modal-open {
   font-size: 0.85rem;
   color: var(--color-text-light);
   word-break: keep-all;
+}
+
+.transport-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  margin: 2px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.transport-call:hover {
+  background: var(--color-soft-surface);
 }
 
 /* 계좌번호 섹션 */
@@ -899,7 +925,7 @@ body.reception-modal-open {
 /* 계좌 카드 스타일 */
 .account-card {
   background-color: var(--color-white);
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 10px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
